@@ -8,12 +8,12 @@ api_key: xxxx
 site: datadoghq.com
 
 ## Custom hostname for this server
-hostname: pnc2
+hostname: host1
 ## Optional: Tags for better organization
 tags:
   - env:prod
-  - team:PNC
-  - role:SSL-Certs
+  - team:xxx
+  - role:xxx
 
 process_config:
   enabled: true
