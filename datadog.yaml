@@ -2,7 +2,7 @@
 #Linux Agent Congfiguration --> /etc/datadog-agent/datadog.yaml
 
 ## REQUIRED - your Datadog API key
-api_key: 0d4aacfc4c5bcb0c7da78ebdc52ea78b
+api_key: xxxx
 
 ## Optional: Set the Datadog site (e.g., us3, us5, datadoghq.eu)
 site: datadoghq.com
