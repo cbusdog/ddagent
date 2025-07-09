@@ -1,0 +1,69 @@
+#=================== Datadog Agent Configuration =================#
+#Linux Agent Congfiguration --> /etc/datadog-agent/datadog.yaml
+
+## REQUIRED - your Datadog API key
+api_key: 0d4aacfc4c5bcb0c7da78ebdc52ea78b
+
+## Optional: Set the Datadog site (e.g., us3, us5, datadoghq.eu)
+site: datadoghq.com
+
+## Custom hostname for this server
+hostname: pnc2
+## Optional: Tags for better organization
+tags:
+  - env:prod
+  - team:PNC
+  - role:SSL-Certs
+
+process_config:
+  enabled: true
+  process_collection:
+    enabled: true
+
+network_monitoring:
+  enabled: true
+
+## Enable APM (tracing)
+apm_config:
+  enabled: true
+
+## Enable logs
+logs_enabled: true
+
+## Enable remote configuration
+remote_configuration:
+  enabled: true
+
+#=================== END DATADOG AGENT CONFIGURATION =================#
+
+#sudo systemctl restart datadog-agent
+sudo datadog-agent status | grep Hostname
+sudo datadog-agent status
+
+## ====================Logs Configuration======================================== ##
+## Log configs go in /etc/datadog-agent/conf.d/ inside a <name>.d/conf.yaml file.
+## If this is for a custom app, use a directory like custom_logs.d.
+
+## Check /etc/datadog-agent/conf.d or create new directory
+## sudo mkdir -p /etc/datadog-agent/conf.d/custom_logs.d
+## sudo nano /etc/datadog-agent/conf.d/custom_logs.d/conf.yaml
+
+#logs:
+#  - type: file
+#    path: /var/log/myapp/app.log
+#    service: myapp
+#    source: java  # or nginx, python, nodejs, custom, etc.
+#    tags:
+#      - env:test
+#      - role:app-server
+#logs:
+#  - type: file
+#    path: /var/log/myapp/app.log
+#    service: myapp
+#    source: java
+#    log_processing_rules:
+#      - type: multi_line
+#        name: java_multiline_start
+#        pattern: '^\d{4}-\d{2}-\d{2}'  # Start of a new log entry
+
+#=================== END DATADOG AGENT CONFIGURATION =================#
